@@ -6,6 +6,20 @@ function createElement(tag, nameClass = '', contentText = '') {
   return element;
 }
 
+export function getErrorCard() {
+  const errorCard = createElement('div', 'card card__error full');
+  const errorSpan1 = createElement('span', 'card__error-span');
+  errorSpan1.textContent = 'Вы ввели неккоректные данные';
+  const errorSpan2 = createElement('span', 'card__error-span');
+  errorSpan2.textContent = 'Попробуйте еще раз';
+  const errorImg = createElement('img', 'card__error-img');
+  errorImg.src = 'img/sad.png';
+  errorImg.alt = 'Грустный смайлик';
+
+  errorCard.append(errorSpan1, errorSpan2, errorImg);
+  return errorCard;
+}
+
 // Создание целого контейнера
 export function getNewCard() {
   // Создаем саму карточку
@@ -36,7 +50,7 @@ export function getNewCard() {
   cardHeadRight.innerHTML = tempIcon;
   const tempText = createElement('span', 'card-param__text');
   const tempValue = createElement('span', 'card-param-value card-param-value_temp');
-  tempText.append(tempValue, document.createElement('sup').textContent = ' °C');
+  tempText.append(tempValue, document.createTextNode(' °C'));
   cardHeadRight.append(tempText);
 
   //сборка заголовка
@@ -98,4 +112,6 @@ export function getNewCard() {
     wind: windValue,
     humidity: humidityValue
   }
-}
+};
+
+

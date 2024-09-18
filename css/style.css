@@ -54,8 +54,6 @@ body {
   align-self: flex-end;
 }
 
-.app__container-bottom {}
-
 .location-form {
   position: relative;
 }
@@ -205,6 +203,7 @@ body {
   position: absolute;
   display: block;
   opacity: 0.6;
+  text-transform: capitalize;
   transform: translateY(-10px);
   will-change: opacity;
   transition: opacity .4s, visibility .2s;
@@ -342,4 +341,23 @@ body {
   opacity: 0.6;
 }
 
+
+/* Карточка с ошибкой */
+.card__error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  
+}
+
+.card__error-span {
+  font-size: 20px;
+}
+
+.card__error-img {
+  height: 50px;
+}
 
