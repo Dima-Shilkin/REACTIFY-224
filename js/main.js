@@ -88,5 +88,5 @@ locationForm.addEventListener('submit', async function(event) {
   }
 });
 
-const cardElements = getNewCard();
+
 
