@@ -1,6 +1,6 @@
 import {getNewCard, getErrorCard} from "./createCard.js";
 
-const APIKEY = '91989e47a0ee54ffd2d6b0585df089da';
+const APIKEY = '9708c9c3a4929e48795cbc2e1458f110';
 
 const cardsBox = document.getElementById('cards-box');
 const locationForm = document.getElementById('location-form');
