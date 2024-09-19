@@ -23,7 +23,7 @@ async function getWeatherData(location) {
     // Возвращаю null, чтобы предотвратить дальнейшие ошибки
     return null;
   }
-}
+};
 
 // Функция для удаления элементов с классом 'card__error'
 function removeElementsByClass(className) {
@@ -39,7 +39,6 @@ locationForm.addEventListener('submit', async function(event) {
   const newCard = getNewCard();
 
   const location = locationInput.value.trim();
-  locationInput.value = '';
 
   cardsBox.prepend(newCard.card);
 
@@ -58,33 +57,33 @@ locationForm.addEventListener('submit', async function(event) {
     newCard.temp.textContent = Math.round(data.main.temp);
     newCard.wind.textContent = data.wind.speed.toFixed(1);
     newCard.humidity.textContent = data.main.humidity;
-    
-    setTimeout(function() {
-      document.querySelector('.app__container').classList.add('app__container_top');
 
-      document.body.style.backgroundImage = `url(img/bg/${data.weather[0].icon}.jpeg)`;
-      if (currentCard !== null) {
-        currentCard.card.classList.add('glass');
-      }
+    locationInput.value = '';
 
-      currentCard = newCard;
+    document.querySelector('.app__container').classList.add('app__container_top');
 
-      newCard.card.classList.remove('loading');
-      newCard.card.classList.add('full');
+    document.body.style.backgroundImage = `url(img/bg/${data.weather[0].icon}.jpeg)`;
+    if (currentCard !== null) {
+      currentCard.card.classList.add('glass');
+    }
+
+    currentCard = newCard;
+    newCard.card.classList.add('full');
       
-      
-      removeElementsByClass('card__error');
-    }, 600);
+    removeElementsByClass('card__error');
+
   } catch (error) {
     // Обработка ошибки
-    newCard.card.classList.remove('loading');
-
+    
     while (cardsBox.firstChild) {
       cardsBox.removeChild(cardsBox.firstChild);
     }
 
     const errorCard = getErrorCard();
     cardsBox.append(errorCard);
+
+  } finally {
+    newCard.card.classList.remove('loading');
   }
 });
 
